@@ -51,8 +51,20 @@
                     <textarea id="content" name="content" required></textarea>
                 </fieldset>
                 <input type="submit"  class="btn postBtn" value="Post" id="post">
-                <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+            </form>
+        </div>
+
+        <div class="form-popup" id="edit-form">
+            <form class="form-container">
+                <h2>Edit a diary entry</h2>
+
+                <fieldset>
+                    <label for="title">Content:</label>
+                    <textarea id="editContent" name="content" required></textarea>
+                </fieldset>
+                <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
+                <button type="button" class="btn cancel" onclick="closeEditForm()">Cancel</button>
             </form>
         </div>
 

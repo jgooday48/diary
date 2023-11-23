@@ -6,6 +6,14 @@ function closeForm() {
     document.getElementById("post-form").style.display = "none";
 }
 
+function openEditForm() {
+    document.getElementById("edit-form").style.display = "block";
+}
+
+function closeEditForm() {
+    document.getElementById("edit-form").style.display = "none";
+}
+
 function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
@@ -69,14 +77,13 @@ function createPostElement(data) {
     editBtn.textContent = "edit"
 
     editBtn.addEventListener('click', async () => {
-        document.getElementById("post").style.display = 'none';
-        const acceptBtn = document.getElementById("accept");
-        acceptBtn.style.display = 'block';
 
-        openForm();
+        openEditForm();
+
+        const acceptBtn = document.getElementById("accept");
 
         acceptBtn.addEventListener('click', async () => {
-            const content = document.getElementById("content");
+            const editContent = document.getElementById("editContent");
 
             const options = {
                 method: "PATCH",
@@ -85,7 +92,7 @@ function createPostElement(data) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    content: content.value
+                    content: editContent.value
                 })
             }
 
@@ -105,9 +112,6 @@ function createPostElement(data) {
 
 document.getElementById("post-form").addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    document.getElementById("post").style.display = 'block';
-    document.getElementById("accept").style.display = 'none';
 
     const form = new FormData(e.target);
 
