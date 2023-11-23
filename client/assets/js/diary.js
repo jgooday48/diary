@@ -5,6 +5,31 @@ function createPostElement (data) {
     const removeBtn = document.createElement("button")
     removeBtn.className = "removeBtn";
     removeBtn.textContent = "remove"
+
+
+    removeBtn.addEventListener('click', async () => {
+        const options = {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          },
+          method: 'DELETE'
+        };
+    
+        const response = await fetch(
+          `http://localhost:3000/posts/${data['id']}`,
+          options
+        );
+    
+        if (response.status === 204) {
+          window.location.reload();
+        } else {
+          const respData = await response.json();
+          alert(respData.error);
+        }
+      });
+
+
+
     post.appendChild(removeBtn)
 
     const editBtn = document.createElement("button")
@@ -16,9 +41,13 @@ function createPostElement (data) {
     header.textContent = data["title"];
     post.appendChild(header);
 
-    const category = document.createElement("p");
+    const category = document.createElement("h1");
     category.textContent = data["category"];
     post.appendChild(category);
+
+    const date = document.createElement("p");
+    date.textContent = data["date"];
+    post.appendChild(date);
 
     const content = document.createElement("p");
     content.textContent = data["content"];
