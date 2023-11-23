@@ -21,3 +21,19 @@ main {
     align-items:center;
     font-size: 20px;
 }
+
+button {
+    padding: 25px;
+    background: lightgreen;
+    font-weight: bold;
+    border: 2px solid;
+    margin: 1px;
+    color: black;
+    /* position: relative; */
+  
+  }
+
+  button:hover {
+    background-color: lightblue;
+  }
+

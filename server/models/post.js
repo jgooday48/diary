@@ -11,7 +11,7 @@ class Post {
     }
 
     static async getAll() {
-        const response = await db.query("SELECT * FROM post");
+        const response = await db.query("SELECT * FROM post ORDER BY post_id DESC");
         return response.rows.map(p => new Post(p));
     }
 
