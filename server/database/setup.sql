@@ -12,7 +12,7 @@ CREATE TABLE user_account (
 
 CREATE TABLE post (
     post_id INT GENERATED ALWAYS AS IDENTITY,
-    date INT NOT NULL,
+    date DATE,
     title VARCHAR (100) NOT NULL,
     category VARCHAR(50) NOT NULL,
     content VARCHAR (500) NOT NULL,

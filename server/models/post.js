@@ -25,7 +25,7 @@ class Post {
 
     static async create(data) {
         const { title, date, category, content } = data;
-        let response = await db.query("INSERT INTO post (title, date, category, content) VALUES ($1, CURRENT_TIMESTAMP, $2, $3) RETURNING post_id;",
+        let response = await db.query("INSERT INTO post (title, date, category, content) VALUES ($1, CURRENT_DATE, $2, $3) RETURNING post_id;",
             [title, category, content]);
         const newId = response.rows[0].post_id;
         const newPost = await Post.getOneById(newId);
