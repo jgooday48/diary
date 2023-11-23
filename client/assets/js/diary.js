@@ -16,6 +16,10 @@ function createPostElement (data) {
     header.textContent = data["title"];
     post.appendChild(header);
 
+    const category = document.createElement("p");
+    category.textContent = data["category"];
+    post.appendChild(category);
+
     const content = document.createElement("p");
     content.textContent = data["content"];
     post.appendChild(content);
