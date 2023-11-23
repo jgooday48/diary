@@ -2,6 +2,16 @@ function createPostElement (data) {
     const post = document.createElement("div");
     post.className = "post";
 
+    const removeBtn = document.createElement("button")
+    removeBtn.className = "removeBtn";
+    removeBtn.textContent = "remove"
+    post.appendChild(removeBtn)
+
+    const editBtn = document.createElement("button")
+    editBtn.className = "removeBtn";
+    editBtn.textContent = "edit"
+    post.appendChild(editBtn)
+
     const header = document.createElement("h2");
     header.textContent = data["title"];
     post.appendChild(header);

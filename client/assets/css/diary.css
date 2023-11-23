@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+}
+
+.container {
+    display: flex;
+    height: 50vh;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 15px;
+    padding: 45px;
+}
+
+.removeBtn {
+    background-color: #11A5D3;
+    width: 10vh;
+    height: 5vh;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.post {
+    width: 90vw;
+    padding: 15px;
+    border-radius: 20px;
+    border-style: groove;
+}
