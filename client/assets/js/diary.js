@@ -10,14 +10,14 @@ function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
 
-    const dateElement = document.createElement("p");
-    const dates = data["date"]; // Assuming dates is a string in a standard date format
-    const originalDate = new Date(dates);
-    const formattedDate = `${originalDate.getDate().toString().padStart(2, '0')}-${(originalDate.getMonth() + 1).toString().padStart(2, '0')}-${originalDate.getFullYear()}`;
 
+    const dateElement = document.createElement("p");
+    const dates = data["date"]; 
+    const originalDates = new Date(dates);
+    const formattedDate = `${originalDates.getDate().toString().padStart(2, '0')}-${(originalDates.getMonth() + 1).toString().padStart(2, '0')}-${originalDates.getFullYear()}`;
     dateElement.textContent = formattedDate;
     post.appendChild(dateElement);
-
+    
     const header = document.createElement("h1");
     header.textContent = data["title"];
     post.appendChild(header);
@@ -44,7 +44,7 @@ function createPostElement(data) {
             },
             method: 'DELETE'
         };
-        const userResponse = window.confirm("Do you want to delete this entry?");
+        const userResponse = window.confirm("Do you want to proceed with deleting this entry?");
         if (userResponse) {
             
             const response = await fetch(
