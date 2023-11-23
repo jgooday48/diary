@@ -11,7 +11,7 @@ body {
     padding: 45px;
 }
 
-.removeBtn, #log-out, #post {
+.removeBtn, #log-out {
     background-color: #11A5D3;
     width: 10vh;
     height: 5vh;
@@ -34,4 +34,77 @@ textarea {
 
 
 
+
+
+
+
+
+
+
+
+
+
+  body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 250px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 20vh;
+  right: 35vw;
+  border: 3px solid #f1f1f1;
+}
+
+.form-container {
+  width: 500px;
+  padding: 20px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+.form-container input[type=text]:focus, textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: rgb(49, 44, 44);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  margin-left:5%;
+  margin-top:20px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: rgb(49, 44, 44);
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
 

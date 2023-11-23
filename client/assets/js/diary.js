@@ -1,3 +1,12 @@
+function openForm() {
+    document.getElementById("post-form").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("post-form").style.display = "none";
+}
+
+
 function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
@@ -55,8 +64,6 @@ function createPostElement(data) {
     editBtn.textContent = "edit"
 
     editBtn.addEventListener('click', async () => {
-        console.log(content.textContent)
-
 
         const options = {
             method: "PATCH",
