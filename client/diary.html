@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./assets/js/diary.js"></script>
     <script defer src="./assets/js/logout.js"></script>
+    <link rel="stylesheet" href="./assets/css/diary.css">
     <title>Make a diary</title>
 </head>
 <body>
-    <nav>
-        <button id="log-out"><a href="./index.html">Log out</a></button>
-    </nav>
+
     <header>
         <h1>Make a diary</h1>
     </header>
     <hr />
     <main>
-        <div class="container" id="posts">
+        <div class="container" id="posts" style="overflow-y:scroll;">
 
         </div>
         <hr />
         <form id="post-form">
+
+            <fieldset>
+                <label for="title">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </fieldset>
+            
             <fieldset>
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -39,5 +44,9 @@
             <input type="submit" value="Post">
         </form>
     </main>
+
+    <nav>
+        <button id="log-out"><a href="./index.html">Log out</a></button>
+    </nav>
 </body>
 </html>

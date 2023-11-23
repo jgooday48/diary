@@ -29,6 +29,21 @@ async function show (req, res) {
     }
 };
 
+
+async function update(req,res) {
+    try {
+        const id = parseInt(req.params.id)
+        const data = req.body
+        const postToUpdate = await Post.getOneById(id)
+        const updatedPost = await postToUpdate.update(data)
+        res.status(200).json(updatedPost)
+        
+    } catch (err) {
+        res.status(404).json({"error": err.message})
+        
+    }
+}
+
 async function destroy (req, res) {
     try {
         const id = parseInt(req.params.id);
@@ -41,5 +56,5 @@ async function destroy (req, res) {
 };
 
 module.exports = {
-    index, create, show, destroy
+    index, create, show, update, destroy
 }

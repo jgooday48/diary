@@ -30,6 +30,15 @@ class Post {
         return newPost;
     }
 
+    async update(data) {
+        const response = await db.query("UPDATE posts SET content =$1 WHERE post_id =$2 RETURNING *;", [data.content, this.post_id])
+        if (response.rows.length != 1) {
+            throw new Error("Unable to update content.")
+        }
+
+        return new Post(response.rows[0]);
+    }
+
     async destroy() {
         let response = await db.query("DELETE FROM post WHERE post_id = $1 RETURNING *;", [this.id]);
         return new Post(response.rows[0]);
