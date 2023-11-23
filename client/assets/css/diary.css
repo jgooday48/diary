@@ -27,3 +27,8 @@ body {
 }
 
 
+textarea {
+    width: 300px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+  }
+
