@@ -37,11 +37,15 @@ function createPostElement (data) {
     editBtn.textContent = "edit"
     post.appendChild(editBtn)
 
-    const header = document.createElement("h2");
+    const header = document.createElement("h1");
     header.textContent = data["title"];
     post.appendChild(header);
 
+<<<<<<< HEAD
     const category = document.createElement("h1");
+=======
+    const category = document.createElement("h2");
+>>>>>>> 5b55b7d37447e495100b6a16ddfdc7c474ddda46
     category.textContent = data["category"];
     post.appendChild(category);
 
