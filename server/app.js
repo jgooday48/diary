@@ -2,8 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const logger = require('morgan')
 
-//const postRoutes = require('./routers/posts')
-
+const postRouter = require('./routers/post')
+const tokenRouter = require('./routers/token')
+const userRouter = require('./routers/user')
 const app = express()
 
 app.use(express.json())
@@ -26,6 +27,10 @@ app.get('/', (req, res) => {
         ]
     })
 })
+
+app.use("/posts", postRouter);
+app.use("/users", userRouter);
+app.use("/tokens",tokenRouter)
 
 app.post('/', (req, res) => {
     res.status(405).send('Not allowed!')
