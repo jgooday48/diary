@@ -1,35 +1,27 @@
-function createPostElement (data) {
+function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
 
     const removeBtn = document.createElement("button")
     removeBtn.className = "removeBtn";
     removeBtn.textContent = "remove"
-
-
     removeBtn.addEventListener('click', async () => {
         const options = {
-          headers: {
-            Authorization: localStorage.getItem('token')
-          },
-          method: 'DELETE'
+            method: 'DELETE'
         };
-    
+
         const response = await fetch(
-          `http://localhost:3000/posts/${data['id']}`,
-          options
+            `http://localhost:3000/posts/${data['id']}`,
+            options
         );
-    
+
         if (response.status === 204) {
-          window.location.reload();
+            window.location.reload();
         } else {
-          const respData = await response.json();
-          alert(respData.error);
+            const respData = await response.json();
+            alert(respData.error);
         }
-      });
-
-
-
+    });
     post.appendChild(removeBtn)
 
     const editBtn = document.createElement("button")
@@ -41,11 +33,7 @@ function createPostElement (data) {
     header.textContent = data["title"];
     post.appendChild(header);
 
-<<<<<<< HEAD
-    const category = document.createElement("h1");
-=======
     const category = document.createElement("h2");
->>>>>>> 5b55b7d37447e495100b6a16ddfdc7c474ddda46
     category.textContent = data["category"];
     post.appendChild(category);
 
@@ -85,10 +73,10 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
     }
 })
 
-async function loadPosts () {
-    
+async function loadPosts() {
+
     // client/assets/board.js
-// loadPosts function
+    // loadPosts function
     const options = {
         headers: {
             'Authorization': localStorage.getItem("token")
@@ -98,7 +86,7 @@ async function loadPosts () {
 
     if (response.status == 200) {
         const posts = await response.json();
-    
+
         const container = document.getElementById("posts");
 
         posts.forEach(p => {
