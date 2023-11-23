@@ -40,7 +40,8 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
         },
         body: JSON.stringify({
             title: form.get("title"),
-            content: form.get("content")
+            content: form.get("content"),
+            category: form.get("category")
         })
     }
 
