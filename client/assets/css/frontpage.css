@@ -1,5 +1,5 @@
 body {
-    background-color: lightgray;
+    background-color: lightblue;
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -13,6 +13,9 @@ header {
     font-size: 30px;
 }
 
+.container {
+    position: sticky;
+}
 main {
     display: flex;
     height: 40vh;
@@ -24,7 +27,7 @@ main {
 
 button {
     padding: 25px;
-    background: lightgreen;
+    background: lightcoral;
     font-weight: bold;
     border: 2px solid;
     margin: 1px;
@@ -34,6 +37,6 @@ button {
   }
 
   button:hover {
-    background-color: lightblue;
+    background-color: lightgreen;
   }
 

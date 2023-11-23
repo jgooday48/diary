@@ -11,7 +11,7 @@ body {
     padding: 45px;
 }
 
-.removeBtn {
+.removeBtn, #log-out, #post {
     background-color: #11A5D3;
     width: 10vh;
     height: 5vh;
@@ -31,4 +31,7 @@ textarea {
     width: 300px; /* Adjust the width as needed */
     height: 150px; /* Adjust the height as needed */
   }
+
+
+
 
