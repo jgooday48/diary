@@ -44,7 +44,7 @@ function createPostElement(data) {
             },
             method: 'DELETE'
         };
-        const userResponse = window.confirm("Do you want to proceed with deleting this entry?");
+        const userResponse = window.confirm("Do you want to delete this entry?");
         if (userResponse) {
             
             const response = await fetch(
