@@ -2,10 +2,10 @@ const db = require('../database/connect');
 
 class Post {
 
-    constructor({ post_id, title, content }) {
-        this.id = post_id;
-        this.title = title;
-        this.content = content;
+    constructor(data) {
+        this.id = data.post_id;
+        this.title = data.title;
+        this.content = data.content;
     }
 
     static async getAll() {
@@ -31,7 +31,8 @@ class Post {
     }
 
     async update(data) {
-        const response = await db.query("UPDATE posts SET content =$1 WHERE post_id =$2 RETURNING *;", [data.content, this.post_id])
+        const response = await db.query("UPDATE post SET content = $1 WHERE post_id = $2 RETURNING *;", [data.content, this.id]);
+
         if (response.rows.length != 1) {
             throw new Error("Unable to update content.")
         }

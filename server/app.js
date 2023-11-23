@@ -8,7 +8,8 @@ const userRouter = require('./routers/user')
 const app = express()
 
 app.use(express.json())
-if (process.env.NODE_ENV !== "test") app.use(logger('dev'))
+// if (process.env.NODE_ENV !== "test") 
+app.use(logger('dev'))
 app.use(cors())
 
 //app.use('/posts', postsRoutes)
