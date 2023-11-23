@@ -31,7 +31,7 @@ class Post {
     }
 
     async update(data) {
-        const response = await db.query("UPDATE posts SET content= $1 WHERE post_id=$2 RETURNING *", [data.content, this.post_id])
+        const response = await db.query("UPDATE posts SET content =$1 WHERE post_id =$2 RETURNING *;", [data.content, this.post_id])
         if (response.rows.length != 1) {
             throw new Error("Unable to update content.")
         }

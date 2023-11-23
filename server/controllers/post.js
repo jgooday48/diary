@@ -39,7 +39,7 @@ async function update(req,res) {
         res.status(200).json(updatedPost)
         
     } catch (err) {
-        res.status.json({error: err.message})
+        res.status(404).json({"error": err.message})
         
     }
 }
