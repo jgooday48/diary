@@ -13,6 +13,8 @@ header {
     font-size: 30px;
 }
 
+
+
 .container {
     position: sticky;
 }
@@ -26,15 +28,12 @@ main {
 }
 
 button {
-    padding: 25px;
-    background: lightcoral;
-    font-weight: bold;
-    border: 2px solid;
-    margin: 1px;
-    color: black;
-    /* position: relative; */
-  
-  }
+    background-color: #11A5D3;
+    width: 10vh;
+    height: 5vh;
+    border-radius: 20px;
+    font-size: 20px;
+}
 
   button:hover {
     background-color: lightgreen;

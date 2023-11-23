@@ -33,21 +33,10 @@ textarea {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
   body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
-/* Button used to open the contact form - fixed at the bottom of the page */
+
 .open-button {
   background-color: #555;
   color: white;
@@ -58,7 +47,6 @@ textarea {
   width: 250px;
 }
 
-/* The popup form - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
@@ -73,7 +61,7 @@ textarea {
   background-color: white;
 }
 
-/* Full-width input fields */
+
 .form-container input[type=text], textarea {
   width: 100%;
   padding: 15px;

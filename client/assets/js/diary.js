@@ -41,18 +41,22 @@ function createPostElement(data) {
             },
             method: 'DELETE'
         };
+        const userResponse = window.confirm("Do you want to delete this entry?");
+        if (userResponse) {
+            
+            const response = await fetch(
+                `http://localhost:3000/posts/${data['id']}`,
+                options
+            );
+    
+            if (response.status === 204) {
+                window.location.reload();
+            } else {
+                const respData = await response.json();
+                alert(respData.error);
+            }
+          } 
 
-        const response = await fetch(
-            `http://localhost:3000/posts/${data['id']}`,
-            options
-        );
-
-        if (response.status === 204) {
-            window.location.reload();
-        } else {
-            const respData = await response.json();
-            alert(respData.error);
-        }
     });
 
 
