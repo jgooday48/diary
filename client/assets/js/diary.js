@@ -12,11 +12,11 @@ function createPostElement (data) {
     editBtn.textContent = "edit"
     post.appendChild(editBtn)
 
-    const header = document.createElement("h2");
+    const header = document.createElement("h1");
     header.textContent = data["title"];
     post.appendChild(header);
 
-    const category = document.createElement("p");
+    const category = document.createElement("h2");
     category.textContent = data["category"];
     post.appendChild(category);
 
