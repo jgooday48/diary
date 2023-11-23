@@ -13,7 +13,6 @@
 
 <body>
     
-
     <header>
         <h1>Create and view diary entries</h1>
     </header>
@@ -31,7 +30,7 @@
     <hr />
     <main>
         <div class="addPost">
-            <button class="open-button" onclick="openForm()">Add a new Post</button>
+            <button class="newPostBtn" onclick="openForm()">Add a new Post</button>
         </div>
 
         <div class="form-popup" id="post-form">
@@ -52,6 +51,7 @@
                     <textarea id="content" name="content" required></textarea>
                 </fieldset>
                 <input type="submit"  class="btn postBtn" value="Post" id="post">
+                <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>

@@ -1,16 +1,22 @@
+function openForm() {
+    document.getElementById("post-form").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("post-form").style.display = "none";
+}
+
 function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
 
     const dateElement = document.createElement("p");
     const dates = data["date"]; // Assuming dates is a string in a standard date format
-
     const originalDate = new Date(dates);
     const formattedDate = `${originalDate.getDate().toString().padStart(2, '0')}-${(originalDate.getMonth() + 1).toString().padStart(2, '0')}-${originalDate.getFullYear()}`;
 
     dateElement.textContent = formattedDate;
     post.appendChild(dateElement);
-
 
     const header = document.createElement("h1");
     header.textContent = data["title"];
@@ -56,8 +62,6 @@ function createPostElement(data) {
 
     });
 
-
-
     post.appendChild(removeBtn)
 
     const editBtn = document.createElement("button")
@@ -65,8 +69,20 @@ function createPostElement(data) {
     editBtn.textContent = "edit"
 
     editBtn.addEventListener('click', async () => {
-        console.log(content.textContent)
+        document.getElementById("post").style.display = 'none'; 
+        const acceptBtn = document.getElementById("accept");
+        acceptBtn.style.display = 'block'; 
 
+        openForm();
+
+
+
+        acceptBtn.addEventListener('click', async () => {
+            const content = document.getElementById("content");
+            console.log('sdfsdfsdsf')
+            console.log(content)
+
+        })
 
         const options = {
             method: "PATCH",
@@ -83,10 +99,7 @@ function createPostElement(data) {
             `http://localhost:3000/posts/${data['id']}`,
             options
         );
-
-
     });
-
 
 
     post.appendChild(editBtn)
@@ -95,6 +108,9 @@ function createPostElement(data) {
 
 document.getElementById("post-form").addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    document.getElementById("post").style.display = 'block'; 
+    document.getElementById("accept").style.display = 'none'; 
 
     const form = new FormData(e.target);
 
