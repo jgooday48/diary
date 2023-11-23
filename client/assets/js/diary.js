@@ -6,7 +6,6 @@ function closeForm() {
     document.getElementById("post-form").style.display = "none";
 }
 
-
 function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
@@ -43,23 +42,21 @@ function createPostElement(data) {
         };
         const userResponse = window.confirm("Do you want to delete this entry?");
         if (userResponse) {
-            
+
             const response = await fetch(
                 `http://localhost:3000/posts/${data['id']}`,
                 options
             );
-    
+
             if (response.status === 204) {
                 window.location.reload();
             } else {
                 const respData = await response.json();
                 alert(respData.error);
             }
-          } 
+        }
 
     });
-
-
 
     post.appendChild(removeBtn)
 
@@ -68,26 +65,34 @@ function createPostElement(data) {
     editBtn.textContent = "edit"
 
     editBtn.addEventListener('click', async () => {
+        document.getElementById("post").style.display = 'none';
+        const acceptBtn = document.getElementById("accept");
+        acceptBtn.style.display = 'block';
 
-        const options = {
-            method: "PATCH",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                content: content.textContent
-            })
-        }
+        openForm();
 
-        const response = await fetch(
-            `http://localhost:3000/posts/${data['id']}`,
-            options
-        );
+        acceptBtn.addEventListener('click', async () => {
+            const content = document.getElementById("content");
 
+            const options = {
+                method: "PATCH",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: content.value
+                })
+            }
+
+            const response = await fetch(
+                `http://localhost:3000/posts/${data['id']}`,
+                options
+            );
+
+        })
 
     });
-
 
 
     post.appendChild(editBtn)
@@ -96,6 +101,9 @@ function createPostElement(data) {
 
 document.getElementById("post-form").addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    document.getElementById("post").style.display = 'block';
+    document.getElementById("accept").style.display = 'none';
 
     const form = new FormData(e.target);
 

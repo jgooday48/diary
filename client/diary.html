@@ -13,7 +13,6 @@
 
 <body>
     
-
     <header>
         <h1>Create and view diary entries</h1>
     </header>
@@ -31,18 +30,18 @@
     <hr />
     <main>
         <div class="addPost">
-            <button class="open-button" onclick="openForm()">Add a new Post</button>
+            <button class="newPostBtn" onclick="openForm()">Add a new Post</button>
         </div>
 
         <div class="form-popup" id="post-form">
             <form class="form-container">
                 <h2>Post a diary entry</h2>
-                <fieldset>
+                <fieldset id="titleField">
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" required>
                 </fieldset>
 
-                <fieldset>
+                <fieldset id="categoryField">
                     <label for="category">Category:</label>
                     <input type="text" id="category" name="category" required>
                 </fieldset>
@@ -52,6 +51,7 @@
                     <textarea id="content" name="content" required></textarea>
                 </fieldset>
                 <input type="submit"  class="btn postBtn" value="Post" id="post">
+                <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
