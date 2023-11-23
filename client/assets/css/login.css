@@ -14,7 +14,7 @@ body {
 }
 
 
-#log-in {
+#log-in, #register {
     background-color: #11A5D3;
     width: 10vh;
     height: 5vh;
@@ -22,11 +22,5 @@ body {
     font-size: 20px;
 }
 
-#register {
-    background-color: #11A5D3;
-    width: 10vh;
-    height: 5vh;
-    border-radius: 20px;
-    font-size: 20px;
-}
+
 
