@@ -1,19 +1,16 @@
-function openForm() {
-    document.getElementById("post-form").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("post-form").style.display = "none";
-}
-
-
 function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
 
-    const date = document.createElement("p");
-    date.textContent = data["date"];
-    post.appendChild(date);
+    const dateElement = document.createElement("p");
+    const dates = data["date"]; // Assuming dates is a string in a standard date format
+
+    const originalDate = new Date(dates);
+    const formattedDate = `${originalDate.getDate().toString().padStart(2, '0')}-${(originalDate.getMonth() + 1).toString().padStart(2, '0')}-${originalDate.getFullYear()}`;
+
+    dateElement.textContent = formattedDate;
+    post.appendChild(dateElement);
+
 
     const header = document.createElement("h1");
     header.textContent = data["title"];
@@ -68,6 +65,8 @@ function createPostElement(data) {
     editBtn.textContent = "edit"
 
     editBtn.addEventListener('click', async () => {
+        console.log(content.textContent)
+
 
         const options = {
             method: "PATCH",
