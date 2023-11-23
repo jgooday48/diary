@@ -22,7 +22,7 @@
 
 ### Running the API
 - Run `npm run dev` in the console to start using the server
-- Ignore the rest of these instructions if you want to skip to interacting with the client side
+- Ignore the bottom two bullet points if you wish to skip to interacting with the client side
 - On your browswer type `http:/localhost:3000` to start using the server 
 - Any API testing platform such as Hoppscotch can be used to interact with the API
 
